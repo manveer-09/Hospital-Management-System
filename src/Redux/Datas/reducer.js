@@ -38,12 +38,16 @@ export default function dataReducer(state = initialState, { type, payload }) {
         dashboard: payload.data || payload,
       };
     case types.DISCHARGE_PATIENT_SUCCESS:
-      let data = state.beds.map((ele) => {
-        if (ele._id === payload.bed._id) {
-          return payload.bed;
-        }
-        return ele;
-      });
+      return {
+        ...state,
+        loading: false,
+        beds: state.beds.map((ele) => {
+          if (ele._id === payload.bed._id) {
+            return payload.bed;
+          }
+          return ele;
+        }),
+      };
     case types.DELETE_APPOINTMENT_SUCCESS:
       return {
         ...state,

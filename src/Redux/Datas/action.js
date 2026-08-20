@@ -4,7 +4,6 @@ import {
   patientsDB,
   appointmentsDB,
   reportsDB,
-  ambulancesDB,
   dashboardData,
 } from "../../data/staticData";
 

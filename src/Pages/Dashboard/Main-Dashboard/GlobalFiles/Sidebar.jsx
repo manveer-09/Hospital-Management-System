@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { AiOutlineUserAdd } from "react-icons/ai";
 import { FaAmbulance } from "react-icons/fa";
 import { GiNurseFemale } from "react-icons/gi";
-import { RiSecurePaymentLine } from "react-icons/ri";
 import { SlUserFollow } from "react-icons/sl";
 import { BsBookmarkPlus, BsFillBookmarkCheckFill } from "react-icons/bs";
 import { BiDetail } from "react-icons/bi";

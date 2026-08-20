@@ -11,7 +11,7 @@ const AllReport = () => {
     dispatch(GetAllReports()).then((res) => {
       setReport(res);
     });
-  }, []);
+  }, [dispatch]);
   return (
     <>
       <div className="container">
