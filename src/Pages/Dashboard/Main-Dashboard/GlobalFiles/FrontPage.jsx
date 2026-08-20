@@ -4,7 +4,6 @@ import { MdPersonAdd } from "react-icons/md";
 import { FaUserNurse } from "react-icons/fa";
 import { RiEmpathizeLine } from "react-icons/ri";
 import { FaBed } from "react-icons/fa";
-import { MdOutlineBedroomParent } from "react-icons/md";
 import { FaAmbulance } from "react-icons/fa";
 import { BsFillBookmarkCheckFill } from "react-icons/bs";
 import { MdPayment } from "react-icons/md";
@@ -32,7 +31,7 @@ const FrontPage = () => {
   useEffect(() => {
     dispatch(GetPatients());
     dispatch(GetAllData());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="container">

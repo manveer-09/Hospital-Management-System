@@ -1,5 +1,4 @@
-import { Table } from "antd";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
@@ -14,14 +13,6 @@ const CheckAppointment = () => {
 
   const disptach = useDispatch();
 
-  const columns = [
-    { title: "Patient Name", dataIndex: "patientName", key: "patientName" },
-    { title: "Mobile", dataIndex: "mobile", key: "mobile" },
-    { title: "Disease", dataIndex: "disease", key: "disease" },
-    { title: "Department", dataIndex: "department", key: "department" },
-    { title: "Date", dataIndex: "date", key: "date" },
-  ];
-
   const AllAppointment = useSelector((state) => state.data.Appointments);
 
   const DeleteAppoint = (id) => {
@@ -29,7 +20,7 @@ const CheckAppointment = () => {
   };
   useEffect(() => {
     disptach(GetAllAppointment());
-  }, []);
+  }, [disptach]);
 
   if (data?.isAuthticated === false) {
     return <Navigate to={"/"} />;
