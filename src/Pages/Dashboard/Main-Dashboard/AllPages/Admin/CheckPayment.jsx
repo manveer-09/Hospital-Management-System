@@ -5,7 +5,7 @@ import { Navigate } from "react-router-dom";
 import Sidebar from "../../GlobalFiles/Sidebar";
 import "./CSS/Payment.css";
 
-const Check_Payment = () => {
+const CheckPayment = () => {
   const { data } = useSelector((store) => store.auth);
 
   const columns = [
@@ -45,4 +45,4 @@ const Check_Payment = () => {
   );
 };
 
-export default Check_Payment;
+export default CheckPayment;

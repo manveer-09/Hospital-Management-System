@@ -16,7 +16,7 @@ import { Navigate } from "react-router-dom";
 
 const notify = (text) => toast(text);
 
-const Add_Patient = () => {
+const AddPatient = () => {
   const getBase64 = (img, callback) => {
     const reader = new FileReader();
     reader.addEventListener("load", () => callback(reader.result));
@@ -458,4 +458,4 @@ const Add_Patient = () => {
   );
 };
 
-export default Add_Patient;
+export default AddPatient;

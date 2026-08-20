@@ -8,7 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const notify = (text) => toast(text);
 
-const Book_Appointment = () => {
+const BookAppointment = () => {
   const dispatch = useDispatch();
   const [Loading, setLoading] = useState(false);
 
@@ -231,4 +231,4 @@ const Book_Appointment = () => {
   );
 };
 
-export default Book_Appointment;
+export default BookAppointment;

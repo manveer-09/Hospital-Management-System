@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Navigate } from "react-router-dom";
 const notify = (text) => toast(text);
 
-const Add_Admin = () => {
+const AddAdmin = () => {
   const { data } = useSelector((store) => store.auth);
 
   const [loading, setloading] = useState(false);
@@ -207,4 +207,4 @@ const Add_Admin = () => {
   );
 };
 
-export default Add_Admin;
+export default AddAdmin;

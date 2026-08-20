@@ -5,7 +5,7 @@ import { Navigate } from "react-router-dom";
 import Sidebar from "../../GlobalFiles/Sidebar";
 import Topbar from "../../GlobalFiles/Topbar";
 
-const Patient_Details = () => {
+const PatientDetails = () => {
   const { data } = useSelector((store) => store.auth);
 
   const columns = [
@@ -61,4 +61,4 @@ const Patient_Details = () => {
   );
 };
 
-export default Patient_Details;
+export default PatientDetails;

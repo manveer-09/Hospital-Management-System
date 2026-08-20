@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import "./CSS/Add_Doctor.css";
 import nurse from "../../../../../img/nurseavatar.png";
-import { message, Upload } from "antd";
-import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { NurseRegister, SendPassword } from "../../../../../Redux/auth/action";
 import Sidebar from "../../GlobalFiles/Sidebar";
@@ -11,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Navigate } from "react-router-dom";
 const notify = (text) => toast(text);
 
-const Add_Nurse = () => {
+const AddNurse = () => {
   const { data } = useSelector((store) => store.auth);
 
   const dispatch = useDispatch();
@@ -251,4 +249,4 @@ const Add_Nurse = () => {
   );
 };
 
-export default Add_Nurse;
+export default AddNurse;

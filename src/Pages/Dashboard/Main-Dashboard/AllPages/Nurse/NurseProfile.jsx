@@ -15,7 +15,7 @@ import { UpdateNurse } from "../../../../../Redux/auth/action";
 import docimg from "../../../../../img/profile.png";
 import "./CSS/Profiles.css";
 
-const Nurse_Profile = () => {
+const NurseProfile = () => {
   const {
     data: { user },
   } = useSelector((state) => state.auth);
@@ -224,4 +224,4 @@ const Nurse_Profile = () => {
   );
 };
 
-export default Nurse_Profile;
+export default NurseProfile;

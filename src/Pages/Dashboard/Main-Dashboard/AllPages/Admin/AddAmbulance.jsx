@@ -11,7 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Navigate } from "react-router-dom";
 const notify = (text) => toast(text);
 
-const Add_Ambulance = () => {
+const AddAmbulance = () => {
   const { data } = useSelector((store) => store.auth);
 
   let [ambuType, setambuType] = useState("none");
@@ -24,8 +24,6 @@ const Add_Ambulance = () => {
     number: "",
   });
 
-  const [loading, setloading] = useState(false);
-
   const dispatch = useDispatch();
 
   const HandleAmbuChange = (e) => {
@@ -37,13 +35,11 @@ const Add_Ambulance = () => {
 
   const HandleAmbuSubmit = (e) => {
     e.preventDefault();
-    setloading(true);
     let data = {
       ...AmbuData,
       type: ambuType,
     };
     dispatch(AmbulanceRegister(data));
-    setloading(false);
     notify("Ambulance Added");
   };
 
@@ -158,4 +154,4 @@ const Add_Ambulance = () => {
   );
 };
 
-export default Add_Ambulance;
+export default AddAmbulance;

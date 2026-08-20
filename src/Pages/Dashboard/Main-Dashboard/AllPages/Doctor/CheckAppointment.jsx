@@ -9,7 +9,7 @@ import {
 } from "../../../../../Redux/Datas/action";
 import Sidebar from "../../GlobalFiles/Sidebar";
 
-const Check_Appointment = () => {
+const CheckAppointment = () => {
   const { data } = useSelector((store) => store.auth);
 
   const disptach = useDispatch();
@@ -94,4 +94,4 @@ const Check_Appointment = () => {
   );
 };
 
-export default Check_Appointment;
+export default CheckAppointment;

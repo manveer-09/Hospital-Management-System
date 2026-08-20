@@ -17,7 +17,7 @@ import "./CSS/Doctor_Profile.css";
 import docimg from "../../../../../img/doctoravatar.png"
 
 // *********************************************************
-const Doctor_Profile = () => {
+const DoctorProfile = () => {
   const { data } = useSelector((store) => store.auth);
 
   const disptach = useDispatch();
@@ -231,4 +231,4 @@ const Doctor_Profile = () => {
   );
 };
 
-export default Doctor_Profile;
+export default DoctorProfile;
