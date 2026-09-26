@@ -51,10 +51,10 @@ const services = [
 ];
 
 const doctors = [
-  { name: "Dr. Ananya Mehta",  specialty: "Cardiologist",   img: d1 },
+  { name: "Dr. Rahul Mehta",  specialty: "Cardiologist",   img: d1 },
   { name: "Dr. Arjun Kapoor",  specialty: "Neurologist",    img: d2 },
-  { name: "Dr. Priya Sharma",  specialty: "Paediatrician",  img: d3 },
-  { name: "Dr. Sunita Verma",  specialty: "Dermatologist",  img: d4 },
+  { name: "Dr. Aditya Sharma",  specialty: "Paediatrician",  img: d3 },
+  { name: "Dr. Ishita Arora",  specialty: "Dermatologist",  img: d4 },
 ];
 
 /* ── component ───────────────────────────────────────────────── */
