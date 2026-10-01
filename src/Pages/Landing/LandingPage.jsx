@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import { HiMiniTrophy } from "react-icons/hi2";
 import { FaHandshakeSimple } from "react-icons/fa6";
 import { GiMicroscope } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { IoIosLock } from "react-icons/io";
 import {
   MdLocalHospital,
@@ -20,6 +23,7 @@ import d1 from "../../img/d1.png";
 import d2 from "../../img/d2.png";
 import d3 from "../../img/d3.png";
 import d4 from "../../img/d4.png";
+import { CreateBooking } from "../../Redux/Datas/action";
 
 /* ── static data ─────────────────────────────────────────────── */
 const services = [
@@ -59,8 +63,40 @@ const doctors = [
 
 /* ── component ───────────────────────────────────────────────── */
 const LandingPage = () => {
+  const dispatch = useDispatch();
+  const [contactSent, setContactSent] = useState(false);
+
+  const handleAppointmentSubmit = (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const details = Object.fromEntries(new FormData(form).entries());
+
+    dispatch(CreateBooking({
+      patientName: details.patientName,
+      mobile: details.mobile,
+      disease: details.disease,
+      age: details.age,
+      gender: details.gender,
+      address: details.address,
+      date: details.date,
+      time: details.time,
+      department: "General Check-up",
+    }));
+
+    form.reset();
+    toast.success("Your appointment has been booked successfully.");
+  };
+
+  const handleContactSubmit = (event) => {
+    event.preventDefault();
+    event.currentTarget.reset();
+    setContactSent(true);
+    toast.success("Thank you. Your message has been sent.");
+  };
+
   return (
     <div>
+      <ToastContainer />
       {/* ── NAVBAR ── */}
       <nav className="lp-navbar">
         <Link to="/" className="lp-logo">
@@ -169,31 +205,31 @@ const LandingPage = () => {
               </div>
             </div>
 
-            <form className="lp-booking-form" onSubmit={(e) => e.preventDefault()}>
+            <form className="lp-booking-form" onSubmit={handleAppointmentSubmit}>
 
               <div className="lp-bf-wrap">
                 <FaUser className="lp-bf-icon" />
-                <input type="text" placeholder="Full Name" required />
+                <input type="text" name="patientName" placeholder="Full Name" required />
               </div>
 
               <div className="lp-bf-wrap">
                 <FaPhoneAlt className="lp-bf-icon" />
-                <input type="tel" placeholder="Phone Number" required />
+                <input type="tel" name="mobile" placeholder="Phone Number" required />
               </div>
 
               <div className="lp-bf-wrap lp-full">
                 <FaStickyNote className="lp-bf-icon" />
-                <input type="text" placeholder="Disease / Complaint" required />
+                <input type="text" name="disease" placeholder="Disease / Complaint" required />
               </div>
 
               <div className="lp-bf-wrap">
                 <FaUser className="lp-bf-icon" />
-                <input type="number" placeholder="Age" required />
+                <input type="number" name="age" placeholder="Age" min="0" required />
               </div>
 
               <div className="lp-bf-wrap">
                 <FaVenusMars className="lp-bf-icon" />
-                <select defaultValue="">
+                <select name="gender" defaultValue="" required>
                   <option value="" disabled>Select Gender</option>
                   <option>Male</option>
                   <option>Female</option>
@@ -203,17 +239,17 @@ const LandingPage = () => {
 
               <div className="lp-bf-wrap lp-full">
                 <FaMapMarkerAlt className="lp-bf-icon" />
-                <input type="text" placeholder="Address" required />
+                <input type="text" name="address" placeholder="Address" required />
               </div>
 
               <div className="lp-bf-wrap">
                 <FaCalendarAlt className="lp-bf-icon" />
-                <input type="date" required />
+                <input type="date" name="date" required />
               </div>
 
               <div className="lp-bf-wrap">
                 <FaClock className="lp-bf-icon" />
-                <input type="time" required />
+                <input type="time" name="time" required />
               </div>
 
               <button type="submit" className="lp-booking-btn">
@@ -306,12 +342,13 @@ const LandingPage = () => {
           <div className="lp-contact-form-wrap">
             <h3 className="lp-contact-form-title">Send a Message</h3>
             <p className="lp-contact-form-sub">Our team will get back to you within 24 hours.</p>
-            <form className="lp-contact-form" onSubmit={(e) => e.preventDefault()}>
-              <input type="text"  placeholder="Your Name"             required />
-              <input type="email" placeholder="Email Address"         required />
-              <input type="text"  placeholder="Subject"               required />
-              <textarea rows="5"  placeholder="Write your message here..." required></textarea>
+            <form className="lp-contact-form" onSubmit={handleContactSubmit}>
+              <input type="text" name="name" placeholder="Your Name" required />
+              <input type="email" name="email" placeholder="Email Address" required />
+              <input type="text" name="subject" placeholder="Subject" required />
+              <textarea name="message" rows="5" placeholder="Write your message here..." required></textarea>
               <button type="submit" className="lp-contact-btn">Send Message</button>
+              {contactSent && <p role="status">Your message has been sent. We will get back to you shortly.</p>}
             </form>
           </div>
 
